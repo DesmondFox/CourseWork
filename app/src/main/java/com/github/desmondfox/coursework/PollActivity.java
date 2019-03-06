@@ -90,8 +90,8 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         // Если следующий элемент - телефон, то находим его ID
         // и пересылаем на активити с результатом
         if (isPhone) {
-            Intent intent = new Intent(PollActivity.this, PhoneActivity.class);
-            intent.putExtra(PhoneActivity.EXTRA_PHONEID, controller.getCheckedPhoneId());
+            Intent intent = new Intent(PollActivity.this, SelectedPhoneActivity.class);
+            intent.putExtra(SelectedPhoneActivity.EXTRA_PHONEID, controller.getCheckedPhoneId());
             startActivity(intent);
         }
 

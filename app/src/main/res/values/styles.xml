@@ -17,4 +17,22 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="AppTheme.Phone">
+
+    </style>
+
+    <style name="AppTheme.Phone.Toolbar">
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
