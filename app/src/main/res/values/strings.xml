@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CourseWork</string>
+
+    <!-- Splash screen -->
+    <string name="splash_loadPhones">Загрузка списка телефонов&#8230;</string>
+    <string name="splash_loadTree">Загрузка дерева&#8230;</string>
+    <string name="splash_done">Запуск приложения&#8230;</string>
+    <string name="splash_errorMsg">Ошибка загрузки: %s</string>
+
+    <!-- Poll activity -->
+    <string name="poll_name">Название вопроса</string>
+    <string name="poll_description">Описание вопроса</string>
+    <string name="poll_no">нет</string>
+    <string name="poll_yes">Да</string>
+    <string name="poll_exitTap">Нажмите еще раз для выхода</string>
+
+    <!-- Poll menu -->
+    <string name="pollmenu_back">Назад</string>
+    <string name="pollmenu_emptyDeque">Вы в начале</string>
+
+</resources>
