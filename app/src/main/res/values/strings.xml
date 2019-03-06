@@ -19,7 +19,6 @@
     <string name="pollmenu_emptyDeque">Вы в начале</string>
 
     <!-- Debug -->
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="title_activity_selected_phone">SelectedPhoneActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -111,5 +110,21 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <!-- Spec List -->
+    <string name="spc_proccessor">Процессор: </string>
+    <string name="spc_os">ОС: </string>
+    <string name="spc_display">Дисплей: </string>
+    <string name="spc_ram">ОЗУ: </string>
+
+    <!-- Spec item -->
+    <string name="spec_name">spec name:</string>
+    <string name="spec_value">spec value</string>
+    <string name="spc_rom">Внутр. память:</string>
+    <string name="spc_batt">Батарея:</string>
+    <string name="spc_mncam">Камера:</string>
+    <string name="spc_frontcam">Фронтальная камера:</string>
+    <string name="spc_nfc">NFC:</string>
+    <string name="spc_features">Доп.:</string>
 
 </resources>

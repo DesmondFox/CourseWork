@@ -63,8 +63,6 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         btnNo.setOnClickListener(this);
         controller = new Controller(this, new QuestionProcessor());
         updateQuestion(controller.getQuestion());
-
-
     }
 
     private void updateQuestion(Question question) {
