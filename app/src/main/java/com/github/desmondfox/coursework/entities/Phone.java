@@ -13,17 +13,6 @@ import java.util.Map;
 public class Phone extends AbstractProcessable{
     private static String NO_EXIST = "-";
 
-    private String os;
-    private String soc;
-    private boolean nfc;
-    private String battery;
-    private String display;
-    private String frontalCam;
-    private String mainCam;
-    private String ram;
-    private String features;
-    private String imgUrl;
-
     private Map<JsonPhoneSpecsFields, String> values
             = new LinkedHashMap<>();
 
@@ -64,42 +53,46 @@ public class Phone extends AbstractProcessable{
     }
 
     public String getOs() {
-        return os;
+        return values.get(JsonPhoneSpecsFields.OS);
     }
 
     public String getSoc() {
-        return soc;
+        return values.get(JsonPhoneSpecsFields.SOC);
     }
 
-    public boolean isNfc() {
-        return nfc;
+    public String getNfc() {
+        return values.get(JsonPhoneSpecsFields.NFC).equals("true") ? "+" : NO_EXIST;
     }
 
     public String getBattery() {
-        return battery;
+        return values.get(JsonPhoneSpecsFields.BATT);
     }
 
     public String getDisplay() {
-        return display;
+        return values.get(JsonPhoneSpecsFields.DISPLAY);
     }
 
     public String getFrontalCam() {
-        return frontalCam;
+        return values.get(JsonPhoneSpecsFields.FRONTAL);
     }
 
     public String getMainCam() {
-        return mainCam;
+        return values.get(JsonPhoneSpecsFields.MAIN);
     }
 
     public String getRam() {
-        return ram;
+        return values.get(JsonPhoneSpecsFields.RAM);
+    }
+
+    public String getRom() {
+        return values.get(JsonPhoneSpecsFields.ROM);
     }
 
     public String getFeatures() {
-        return features;
+        return values.get(JsonPhoneSpecsFields.FEATURES);
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return values.get(JsonPhoneSpecsFields.IMG);
     }
 }
