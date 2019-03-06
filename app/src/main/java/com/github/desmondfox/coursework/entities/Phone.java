@@ -5,7 +5,13 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Phone extends AbstractProcessable{
+    private static String NO_EXIST = "-";
 
     private String os;
     private String soc;
@@ -16,12 +22,23 @@ public class Phone extends AbstractProcessable{
     private String mainCam;
     private String ram;
     private String features;
-    private String img_url;
+    private String imgUrl;
+
+    private Map<JsonPhoneSpecsFields, String> values
+            = new LinkedHashMap<>();
+
+    static final List<JsonPhoneSpecsFields> fields
+            = Arrays.asList(JsonPhoneSpecsFields.class.getEnumConstants());
 
     public Phone(JSONObject obj) throws JSONException {
         name = obj.getString("name");
         description = obj.getString("descr");
         id = obj.getInt("id");
+
+        for (JsonPhoneSpecsFields val : fields) {
+            values.put(val, obj.isNull(val.toString()) ?
+                    NO_EXIST : obj.getString(val.toString()));
+        }
     }
 
     @Override
@@ -82,7 +99,7 @@ public class Phone extends AbstractProcessable{
         return features;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getImgUrl() {
+        return imgUrl;
     }
 }
