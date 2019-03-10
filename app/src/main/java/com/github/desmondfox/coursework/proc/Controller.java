@@ -14,19 +14,18 @@ import java.util.Deque;
 
 public class Controller {
     private static QuestionProcessor processor;
-    private Deque<Question> questionDeque = new ArrayDeque<>();
-    private int checkedPhoneId = -1;
-    private Context context;
-    private boolean isHead = true;
+    private static Deque<Question> questionDeque = new ArrayDeque<>();
+    private static int checkedPhoneId = -1;
+    private static boolean isHead = true;
+    private static boolean stillRun = false;
 
-    public Controller(Context context, QuestionProcessor processor) {
-        this.context = context;
+    public Controller(QuestionProcessor processor) {
         this.processor = processor;
-        questionDeque.add(processor.getQuestions().get(0));
-    }
-
-    public int dequeSize() {
-        return questionDeque.size();
+        if (!stillRun) {
+            questionDeque.add(processor.getQuestions().get(0));
+            stillRun = true;
+        }
+        Log.d("dsfs1", "sdfsdfsdfsdfsd");
     }
 
     public Question getQuestion() {

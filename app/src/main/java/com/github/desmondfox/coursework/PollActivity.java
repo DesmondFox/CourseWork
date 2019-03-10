@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
     private Controller controller;
     private long backPressed;
+    private static String TAG = "Poll Activity";
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -73,9 +75,10 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         btnYes = findViewById(R.id.poll_yes);
         btnYes.setOnClickListener(this);
         btnNo.setOnClickListener(this);
-        controller = new Controller(this, new QuestionProcessor());
+        controller = new Controller(new QuestionProcessor());
         doShowAnimation(pollName, controller.getQuestion().getName());
         doShowAnimation(pollDescr, controller.getQuestion().getDescription());
+        Log.d(TAG, "onCreate()");
     }
 
     private void updateQuestion(Question question) {
