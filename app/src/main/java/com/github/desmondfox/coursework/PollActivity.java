@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.system.Os;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,8 +28,17 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.pollmenu_back:
-                if (controller.back())
-                    updateQuestion(controller.getQuestion());
+                if (controller.isHead())
+                    Toast.makeText(
+                            this,
+                            R.string.pollmenu_emptyDeque,
+                            Toast.LENGTH_SHORT)
+                            .show();
+                else {
+                    controller.back();
+                    doShowAnimation(pollName, controller.getQuestion().getName());
+                    doShowAnimation(pollDescr, controller.getQuestion().getDescription());
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -65,15 +73,16 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         btnYes.setOnClickListener(this);
         btnNo.setOnClickListener(this);
         controller = new Controller(this, new QuestionProcessor());
-        updateQuestion(controller.getQuestion());
+        doShowAnimation(pollName, controller.getQuestion().getName());
+        doShowAnimation(pollDescr, controller.getQuestion().getDescription());
     }
 
     private void updateQuestion(Question question) {
-        doTransientAnimation(pollName, question.getName());
-        doTransientAnimation(pollDescr, question.getDescription());
+        doNextQuestionAnimation(pollName, question.getName());
+        doNextQuestionAnimation(pollDescr, question.getDescription());
     }
 
-    private void doTransientAnimation(TextView view, String nextValue) {
+    private void doNextQuestionAnimation(TextView view, String nextValue) {
         Animation fadeAnim = AnimationUtils.loadAnimation(this, R.anim.text_fade);
         fadeAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -92,6 +101,13 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
             public void onAnimationRepeat(Animation animation) {}
         });
         view.startAnimation(fadeAnim);
+    }
+
+    private void doShowAnimation(TextView view, String value) {
+        view.setText(value);
+        Animation showAnim = AnimationUtils.loadAnimation(this, R.anim.text_show);
+        showAnim.setDuration(200);
+        view.startAnimation(showAnim);
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.github.desmondfox.coursework.entities;
 
 public enum JsonPhoneSpecsFields {
     NFC("NFC"),
-    NO_EXIST("-"),
     OS("OS"),
     SOC("SoC"),
     BATT("AKB"),
