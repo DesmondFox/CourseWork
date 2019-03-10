@@ -65,6 +65,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_poll);
         toolbar = findViewById(R.id.poll_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
         pollName = findViewById(R.id.poll_name);
         pollDescr = findViewById(R.id.poll_descr);
