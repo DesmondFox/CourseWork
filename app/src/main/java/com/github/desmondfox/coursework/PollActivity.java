@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.system.Os;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,8 +69,29 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void updateQuestion(Question question) {
-        pollName.setText(question.getName());
-        pollDescr.setText(question.getDescription());
+        doTransientAnimation(pollName, question.getName());
+        doTransientAnimation(pollDescr, question.getDescription());
+    }
+
+    private void doTransientAnimation(TextView view, String nextValue) {
+        Animation fadeAnim = AnimationUtils.loadAnimation(this, R.anim.text_fade);
+        fadeAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) { }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                view.setText(nextValue);
+                Animation showAnim = AnimationUtils.loadAnimation(
+                        PollActivity.this,
+                        R.anim.text_show);
+                view.startAnimation(showAnim);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
+        });
+        view.startAnimation(fadeAnim);
     }
 
     @Override
@@ -92,6 +116,5 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra(SelectedPhoneActivity.EXTRA_PHONEID, controller.getCheckedPhoneId());
             startActivity(intent);
         }
-
     }
 }
