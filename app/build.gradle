@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'alias0'
-            keyPassword 'Jajgjtjm1'
-            storeFile file('F:/Files/Java/KS_AR.jks')
-            storePassword 'jajgjtjm'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.github.desmondfox.coursework"
