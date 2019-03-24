@@ -2,10 +2,10 @@
     <string name="app_name">CourseWork</string>
 
     <!-- Splash screen -->
-    <string name="splash_loadPhones">Загрузка списка телефонов&#8230;</string>
-    <string name="splash_loadTree">Загрузка дерева&#8230;</string>
-    <string name="splash_done">Запуск приложения&#8230;</string>
-    <string name="splash_errorMsg">Ошибка загрузки: %s</string>
+    <string name="splash_loadPhones">Завантаження списку телефонів&#8230;</string>
+    <string name="splash_loadTree">Завантаження дерева&#8230;</string>
+    <string name="splash_done">Запуск додатку&#8230;</string>
+    <string name="splash_errorMsg">Помилка: %s</string>
 
     <!-- Poll activity -->
     <string name="poll_name">Название вопроса</string>
@@ -16,7 +16,7 @@
 
     <!-- Poll menu -->
     <string name="pollmenu_back">Назад</string>
-    <string name="pollmenu_emptyDeque">Вы в начале</string>
+    <string name="pollmenu_emptyDeque">Ви на початку</string>
 
     <!-- Debug -->
     <string name="title_activity_selected_phone">SelectedPhoneActivity</string>
@@ -110,9 +110,10 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="description_example">Пример описания вопроса</string>
 
     <!-- Spec List -->
-    <string name="spc_proccessor">Процессор: </string>
+    <string name="spc_proccessor">Процесор: </string>
     <string name="spc_os">ОС: </string>
     <string name="spc_display">Дисплей: </string>
     <string name="spc_ram">ОЗУ: </string>
@@ -120,11 +121,16 @@
     <!-- Spec item -->
     <string name="spec_name">spec name:</string>
     <string name="spec_value">spec value</string>
-    <string name="spc_rom">Внутр. память:</string>
+    <string name="spc_rom">Внутр. пам\'ять:</string>
     <string name="spc_batt">Батарея:</string>
     <string name="spc_mncam">Камера:</string>
-    <string name="spc_frontcam">Фронтальная камера:</string>
+    <string name="spc_frontcam">Фронтальна камера:</string>
     <string name="spc_nfc">NFC:</string>
     <string name="spc_features">Доп.:</string>
+    
+    <!-- Poll description -->
+    <string name="polldescr_expand">Розгорнути</string>
+    <string name="poll_expand">Розгорнути опис</string>
+    <string name="poll_rollup">Приховати</string>
 
 </resources>
