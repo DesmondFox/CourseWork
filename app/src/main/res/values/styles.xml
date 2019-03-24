@@ -48,6 +48,10 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="AppTheme.Poll.Description">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="AppTheme.Poll.Expand" />
     <style name="AppTheme.Poll.Expand.ExpandButton">
         <item name="android:textSize">4sp</item>

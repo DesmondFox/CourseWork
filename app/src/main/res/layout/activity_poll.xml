@@ -28,16 +28,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poll_toolbar" />
 
+    <!--<Button-->
+        <!--android:id="@+id/poll_expand"-->
+        <!--style="@style/Widget.AppCompat.Button.Borderless"-->
+        <!--android:layout_width="167dp"-->
+        <!--android:layout_height="31dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:padding="0dp"-->
+        <!--android:paddingBottom="0dp"-->
+        <!--android:text="@string/poll_expand"-->
+        <!--android:textColor="@color/colorPrimaryDark"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/poll_name" />-->
+
     <TextView
         android:id="@+id/poll_descr"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/poll_description"
-        app:layout_constraintEnd_toEndOf="@+id/poll_name"
-        app:layout_constraintStart_toStartOf="@+id/poll_name"
-        app:layout_constraintTop_toBottomOf="@+id/poll_name" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/poll_name"
+        style="@style/AppTheme.Poll.Description"/>
+        <!--app:layout_constraintTop_toBottomOf="@id/poll_expand" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

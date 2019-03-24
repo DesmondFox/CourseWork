@@ -18,6 +18,7 @@ public class Controller {
     private static int checkedPhoneId = -1;
     private static boolean isHead = true;
     private static boolean stillRun = false;
+    private static String TAG = "Controller";
 
     public Controller(QuestionProcessor processor) {
         this.processor = processor;
@@ -25,7 +26,6 @@ public class Controller {
             questionDeque.add(processor.getQuestions().get(0));
             stillRun = true;
         }
-        Log.d("dsfs1", "sdfsdfsdfsdfsd");
     }
 
     public Question getQuestion() {
@@ -75,16 +75,27 @@ public class Controller {
         }
     }
 
+    /**
+     *
+     * @return false, если уже находится в начале дерева
+     */
     public boolean back() {
         if (questionDeque.size() == 1) {
-            Log.w("Controller", "Reached poll root. Deque contains 1 element");
+            Log.w(TAG, "Reached poll root. Deque contains 1 element");
             return false;
         }
         questionDeque.removeLast();
         if (questionDeque.size() == 1)
             isHead = true;
-        Log.d("Controller", "Removed last element from deque");
+        Log.d(TAG, "Removed last element from deque");
         return true;
+    }
+
+    /**
+     * Переводит дерево в начало
+     */
+    public void toBeggining() {
+        while (back()) {}
     }
 
     /**

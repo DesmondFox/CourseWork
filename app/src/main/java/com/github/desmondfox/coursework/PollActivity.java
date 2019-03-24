@@ -21,10 +21,27 @@ import com.github.desmondfox.coursework.proc.QuestionProcessor;
 public class PollActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView pollName, pollDescr;
     private Button btnYes, btnNo;
+//    private Button btnShowDescr;
     private Toolbar toolbar;
     private Controller controller;
     private long backPressed;
     private static String TAG = "Poll Activity";
+//    private boolean hiddenDescr = true;
+
+    private static String KEY_HIDDEN_DESCR = TAG+"/HiddenDescription";
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+//        outState.putBoolean(KEY_HIDDEN_DESCR, hiddenDescr);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+//        hiddenDescr = savedInstanceState.getBoolean(KEY_HIDDEN_DESCR);
+        updateQuestion(controller.getQuestion());
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -54,11 +71,18 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if (backPressed + 2000 > System.currentTimeMillis())
+        if (backPressed + 2000 > System.currentTimeMillis()) {
             super.onBackPressed();
+            controller.toBeggining();
+        }
         else
             Toast.makeText(this, R.string.poll_exitTap, Toast.LENGTH_SHORT).show();
         backPressed = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
@@ -73,8 +97,12 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         pollDescr = findViewById(R.id.poll_descr);
         btnNo = findViewById(R.id.poll_no);
         btnYes = findViewById(R.id.poll_yes);
+//        btnShowDescr = findViewById(R.id.poll_expand);
+
         btnYes.setOnClickListener(this);
         btnNo.setOnClickListener(this);
+//        btnShowDescr.setOnClickListener(this);
+
         controller = new Controller(new QuestionProcessor());
         doShowAnimation(pollName, controller.getQuestion().getName());
         doShowAnimation(pollDescr, controller.getQuestion().getDescription());
@@ -84,6 +112,10 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     private void updateQuestion(Question question) {
         doNextQuestionAnimation(pollName, question.getName());
         doNextQuestionAnimation(pollDescr, question.getDescription());
+
+//        pollDescr.setVisibility(View.GONE);
+//        btnShowDescr.setText(R.string.poll_expand);
+//        hiddenDescr = true;
     }
 
     private void doNextQuestionAnimation(TextView view, String nextValue) {
@@ -94,6 +126,12 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onAnimationEnd(Animation animation) {
+//                if (!hiddenDescr) {
+//                    pollDescr.setVisibility(View.GONE);
+//                    btnShowDescr.setText(R.string.poll_expand);
+//                    hiddenDescr = true;
+//                }
+
                 view.setText(nextValue);
                 Animation showAnim = AnimationUtils.loadAnimation(
                         PollActivity.this,
@@ -128,6 +166,18 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                     updateQuestion(controller.getQuestion());
                 } else isPhone = true;
                 break;
+//            case R.id.poll_expand:
+//
+//                if (hiddenDescr) {
+//                    pollDescr.setVisibility(View.VISIBLE);
+//                    btnShowDescr.setText(R.string.poll_rollup);
+//                } else {
+//                    pollDescr.setVisibility(View.GONE);
+//                    btnShowDescr.setText(R.string.poll_expand);
+//                }
+//
+//                hiddenDescr = !hiddenDescr;
+//                break;
         }
         // Если следующий элемент - телефон, то находим его ID
         // и пересылаем на активити с результатом
