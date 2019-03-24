@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PollActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.Poll.Activity">
 
     <include
         android:id="@+id/poll_toolbar"

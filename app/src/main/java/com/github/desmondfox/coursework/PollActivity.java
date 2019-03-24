@@ -91,7 +91,6 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     private void updateQuestion(Question question) {
         doNextQuestionAnimation(pollName, question.getName());
         doNextQuestionAnimation(pollDescr, question.getDescription());
-
     }
 
     private void doNextQuestionAnimation(TextView view, String nextValue) {

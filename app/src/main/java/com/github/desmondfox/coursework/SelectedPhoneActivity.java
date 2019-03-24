@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 
 import com.github.desmondfox.coursework.entities.Phone;
@@ -43,6 +45,11 @@ public class SelectedPhoneActivity extends AppCompatActivity {
 
         phoneImage = findViewById(R.id.phone_img);
         phoneSpecs = findViewById(R.id.phone_specs);
+
+        LayoutAnimationController animationController =
+                AnimationUtils.loadLayoutAnimation(this, R.anim.layout_fall_down);
+        phoneSpecs.setLayoutAnimation(animationController);
+
         phoneSpecs.setLayoutManager(new LinearLayoutManager(this));
         phoneSpecs.setAdapter(specsAdapter);
 

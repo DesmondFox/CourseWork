@@ -35,10 +35,11 @@
 
     <style name="AppTheme.Spec" />
     <style name="AppTheme.Spec.Name">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="AppTheme.Spec.Name.Value">
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -55,6 +56,10 @@
     <style name="AppTheme.Poll.Expand" />
     <style name="AppTheme.Poll.Expand.ExpandButton">
         <item name="android:textSize">4sp</item>
+    </style>
+
+    <style name="AppTheme.Poll.Activity">
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
     </style>
 
 </resources>
