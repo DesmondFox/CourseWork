@@ -12,7 +12,7 @@
     <string name="poll_description">Описание вопроса</string>
     <string name="poll_no">нет</string>
     <string name="poll_yes">Да</string>
-    <string name="poll_exitTap">Нажмите еще раз для выхода</string>
+    <string name="poll_exitTap">Натисніть ще раз для виходу</string>
 
     <!-- Poll menu -->
     <string name="pollmenu_back">Назад</string>
