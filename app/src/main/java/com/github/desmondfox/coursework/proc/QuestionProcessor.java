@@ -1,10 +1,8 @@
 package com.github.desmondfox.coursework.proc;
 
-import android.util.Log;
-
 import com.github.desmondfox.coursework.entities.Phone;
 import com.github.desmondfox.coursework.entities.Question;
-import com.github.desmondfox.coursework.proc.ItemParser;
+import com.github.desmondfox.coursework.utils.ItemParser;
 import com.github.desmondfox.coursework.proc.providers.DataProvider;
 
 import java.util.ArrayList;
